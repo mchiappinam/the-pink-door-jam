@@ -1,22 +1,22 @@
 <!--Navbar-->
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark pink" [containerInside]="false">
 
-    <!-- Navbar brand -->
-    <mdb-navbar-brand><a class="navbar-brand" href="#">LOGO</a></mdb-navbar-brand>
-  
-    <!-- Collapsible content -->
-    <links>
-  
-      <!-- Links -->
-      <ul class="container navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
-        </li>
-  
-      </ul>
-      <!-- Links -->
-      
-  <div *ngIf="logged">
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand" href="#">LOGO</a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="container navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+      </li>
+
+    </ul>
+    <!-- Links -->
+
+    <div *ngIf="logged">
       <ul class="navbar-nav ml-auto nav-flex-icons">
         <li class="nav-item">
           <a class="nav-link">
@@ -30,9 +30,10 @@
             </div>
           </a>
         </li>
-      </ul></div>
-    </links>
-    <!-- Collapsible content -->
-  
-  </mdb-navbar>
-  <!--/.Navbar-->
+      </ul>
+    </div>
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->

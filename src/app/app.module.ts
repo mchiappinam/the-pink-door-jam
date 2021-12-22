@@ -33,6 +33,6 @@ import { FooterComponent } from './footer/footer.component';
   ],
   providers: [MDBSpinningPreloader],
   bootstrap: [AppComponent],
-  schemas:      [ NO_ERRORS_SCHEMA ]
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
