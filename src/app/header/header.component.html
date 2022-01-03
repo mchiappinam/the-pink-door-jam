@@ -2,7 +2,7 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark pink" [containerInside]="false">
 
   <!-- Navbar brand -->
-  <mdb-navbar-brand><a class="navbar-brand" href="#">LOGO</a></mdb-navbar-brand>
+  <mdb-navbar-brand><a class="navbar-brand" href="#">The Pink Door</a></mdb-navbar-brand>
 
   <!-- Collapsible content -->
   <links>
@@ -16,8 +16,8 @@
     </ul>
     <!-- Links -->
 
-    <div *ngIf="logged">
-      <ul class="navbar-nav ml-auto nav-flex-icons">
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+    <div *ngIf="logged; else elseBlock">
         <li class="nav-item">
           <a class="nav-link">
             <div class="btn-group" mdbDropdown>
@@ -30,8 +30,16 @@
             </div>
           </a>
         </li>
-      </ul>
     </div>
+    
+    <ng-template #elseBlock>
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sign In</a>
+        </li>
+      </ul>
+    </ng-template>
+  </ul>
   </links>
   <!-- Collapsible content -->
 
