@@ -1,0 +1,66 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ApiService } from './../../../services/api.service'
+import { AuthService } from './../../../services/auth.service'
+import { Router } from '@angular/router';
+import { GalleryComponent } from 'src/app/gallery/gallery.component';
+import { HeaderComponent } from 'src/app/header/header.component';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
+})
+export class LoginComponent implements OnInit {
+
+  isLogin: boolean = false
+
+  errorMessage
+  constructor(
+    public _api: ApiService,
+    public _auth: AuthService,
+    public _router: Router
+  ) { }
+
+  ngOnInit() {
+
+    this.isUserLogin();
+
+  }
+
+
+
+  onSubmit(form: NgForm) {
+    console.log('Your form data : ', form.value);
+
+    this._api.postTypeRequest('user/login', form.value).subscribe((res: any) => {
+      if (res.status) {
+
+        console.log(res)
+        this._auth.setDataInLocalStorage('userData', JSON.stringify(res.data));
+        this._auth.setDataInLocalStorage('token', res.token);
+        this._router.navigate(['']);
+        this.isUserLogin();
+      } else {
+        alert(res.error);
+      }
+    }, err => {
+      this.errorMessage = err['error'].message;
+    });
+  }
+
+  isUserLogin() {
+    console.log(this._auth.getUserDetails())
+    if (this._auth.getUserDetails() != null) {
+      this.isLogin = true;
+    } else {
+      this.isLogin = false;
+    }
+  }
+
+  logout() {
+    this._auth.clearStorage()
+    this._router.navigate(['']);
+    this.isUserLogin();
+  }
+}

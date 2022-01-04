@@ -1,22 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginComponent } from '../auth/components/login/login.component';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-  logged: boolean = true;
+export class HeaderComponent extends LoginComponent implements OnInit {
 
-  constructor() {
-  }
 
 
   ngOnInit() {
-  }
-
-  logout() {
-    this.logged = false;
+    this.isUserLogin(); 
+    setInterval(()=>{this.isUserLogin()}, 250);
   }
 
 

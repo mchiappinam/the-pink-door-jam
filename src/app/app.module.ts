@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
@@ -11,13 +10,19 @@ import { MDBSpinningPreloader, MDBBootstrapModulesPro, ToastModule } from 'ng-ui
 import { GalleryComponent } from './gallery/gallery.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { AuthModule } from './auth/auth/auth.module';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './auth/components/login/login.component';
+import { RegisterComponent } from './auth/components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GalleryComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -28,8 +33,10 @@ import { FooterComponent } from './footer/footer.component';
     MDBBootstrapModulesPro.forRoot(),
     AgmCoreModule.forRoot({
       // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en#key
-      apiKey: 'Your_api_key'
-    })
+      apiKey: 'AIzaSyD1utbfswrRk6lgS3UhzNU4Wk7Q7hc4AtI'
+    }),
+    AuthModule,
+    AppRoutingModule
   ],
   providers: [MDBSpinningPreloader],
   bootstrap: [AppComponent],

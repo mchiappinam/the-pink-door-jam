@@ -1,0 +1,60 @@
+<!-- Material form register -->
+<mdb-card>
+
+    <mdb-card-header class="teal accent-3 white-text text-center py-4">
+        <h5>
+            <strong>Sign in</strong>
+        </h5>
+    </mdb-card-header>
+
+    <!--Card content-->
+    <mdb-card-body class="px-lg-5 pt-0">
+
+        <!-- Form -->
+        <div class="container">
+            <section class="pb-3 my-5">
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-md-12 mb-3">
+                        <form #myform="ngForm" (ngSubmit)="onSubmit(myform)" style="color: #757575;"  *ngIf='!this.isLogin' ngNativeValidate>
+
+                            <div class="form-row">
+                                <div class="col">
+                                    <!-- Username -->
+                                    <div class="md-form">
+                                        <input type="text" id="materialRegisterFormFirstName" class="form-control"
+                                            name="username" required mdbInput ngModel>
+                                        <label for="materialRegisterFormFirstName">Username</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="md-form">
+                                <input type="password" id="materialRegisterFormPassword" class="form-control"
+                                    name="password" aria-describedby="materialRegisterFormPasswordHelpBlock" required
+                                    mdbInput ngModel>
+                                <label for="materialRegisterFormPassword">Password</label>
+                            </div>
+
+                            <!-- Sign up button -->
+                            <button mdbBtn color="info" outline="true" rounded="true" block="true"
+                                class="my-4 waves-effect z-depth-0" mdbWavesEffect type="submit">Sign in</button>
+                        </form>
+                        <!-- Form -->
+                        <div class='col-md-4 offset-4 mt-5' *ngIf='this.isLogin'>
+                            <h1>You are logged in</h1>
+                            <button class='btn btn-outline-info' (click)='logout()'>Log-out</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </mdb-card-body>
+
+</mdb-card>
+<!-- Material form register -->
+
+
+
+<!-- Material form login -->
