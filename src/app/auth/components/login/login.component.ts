@@ -3,8 +3,6 @@ import { NgForm } from '@angular/forms';
 import { ApiService } from './../../../services/api.service'
 import { AuthService } from './../../../services/auth.service'
 import { Router } from '@angular/router';
-import { GalleryComponent } from 'src/app/gallery/gallery.component';
-import { HeaderComponent } from 'src/app/header/header.component';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +12,7 @@ import { HeaderComponent } from 'src/app/header/header.component';
 export class LoginComponent implements OnInit {
 
   isLogin: boolean = false
+  user: String = null;
 
   errorMessage
   constructor(
@@ -31,12 +30,11 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit(form: NgForm) {
-    console.log('Your form data : ', form.value);
+    //console.log('Your form data : ', form.value);
 
     this._api.postTypeRequest('user/login', form.value).subscribe((res: any) => {
       if (res.status) {
-
-        console.log(res)
+        //console.log(res)
         this._auth.setDataInLocalStorage('userData', JSON.stringify(res.data));
         this._auth.setDataInLocalStorage('token', res.token);
         this._router.navigate(['']);
@@ -50,11 +48,12 @@ export class LoginComponent implements OnInit {
   }
 
   isUserLogin() {
-    console.log(this._auth.getUserDetails())
     if (this._auth.getUserDetails() != null) {
       this.isLogin = true;
+      this.user = JSON.parse(JSON.stringify(this._auth.getUserDetails()))[0].username;
     } else {
       this.isLogin = false;
+      this.user = null;
     }
   }
 

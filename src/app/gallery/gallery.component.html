@@ -307,9 +307,17 @@
       </div>
       <!--Grid column-->
     </div>
-    <!--Grid row-->
-    <agm-map [latitude]="39.7852077" [longitude]="-75.9890902" style="height: 300px">
-      <agm-marker [latitude]="39.7852077" [longitude]="-75.9890902"></agm-marker>
+    <!--Grid row--><!--[gestureHandling]="none" giving a error?!-->
+    <agm-map [latitude]="40.0026767" [longitude]="-75.6783382" [fitBounds]="true" style="height: 600px">
+      <agm-marker [agmFitBounds]="true" [latitude]="30.3079827" [longitude]="-97.8934851">Texas</agm-marker>
+      <agm-marker [agmFitBounds]="true" [latitude]="30.4672688" [longitude]="-84.3268957">Florida</agm-marker>
+      <agm-marker [agmFitBounds]="true" [latitude]="40.2161138" [longitude]="-74.8092249">New Jersey</agm-marker>
+      <agm-marker [agmFitBounds]="true" [latitude]="40.2822047" [longitude]="-76.9154449">Pennsylvania</agm-marker>
+      <agm-marker [agmFitBounds]="true" [latitude]="42.3144556" [longitude]="-71.0403236">Massachusetts</agm-marker>
+      <agm-marker [agmFitBounds]="true" [latitude]="39.1564772" [longitude]="-75.5484393">Delaware</agm-marker>
+      <agm-marker [agmFitBounds]="true" [latitude]="33.7678358" [longitude]="-84.4906437">Georgia</agm-marker>
+      <agm-marker [agmFitBounds]="true" [latitude]="38.972501" [longitude]="-76.522204">Maryland</agm-marker>
+      <agm-marker [agmFitBounds]="true" [latitude]="-23.6815315" [longitude]="-46.8754817">São Paulo</agm-marker>
     </agm-map>
   </section>
 </div>

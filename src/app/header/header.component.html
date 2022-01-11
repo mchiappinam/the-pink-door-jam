@@ -2,14 +2,14 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark pink" [containerInside]="false">
 
   <!-- Navbar brand -->
-  <mdb-navbar-brand><a class="navbar-brand" [routerLink] = "['']">The Pink Door</a></mdb-navbar-brand>
+  <mdb-navbar-brand><a class="navbar-brand" [routerLink]="['']">The Pink Door</a></mdb-navbar-brand>
 
   <!-- Collapsible content -->
   <links>
 
     <!-- Links -->
     <ul class="container navbar-nav mr-auto">
-      <li class="nav-item" [routerLink] = "['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <li class="nav-item" [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
       </li>
 
@@ -17,32 +17,39 @@
     <!-- Links -->
 
     <ul class="navbar-nav ml-auto nav-flex-icons">
-    <div *ngIf="isLogin; else elseBlock">
-        <li class="nav-item">
-          <a class="nav-link">
-            <div class="btn-group" mdbDropdown>
-              <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
-              <div class="dropdown-menu dropdown-menu-right dropdown-primary">
-                <a class="dropdown-item">NAME</a>
-                <div class="divider dropdown-divider"></div>
-                <a class="dropdown-item" (click)='logout()' href="#">Logout</a>
+      <div *ngIf="isLogin; else elseBlock">
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Welcome, {{user}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">
+              <div class="btn-group" mdbDropdown>
+                <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
+                <div class="dropdown-menu dropdown-menu-right dropdown-primary">
+                  <!--<a class="dropdown-item">NAME</a>
+                <div class="divider dropdown-divider"></div>-->
+                  <a class="dropdown-item" (click)='logout()' href="#">Logout</a>
+                </div>
               </div>
-            </div>
-          </a>
-        </li>
-    </div>
-    
-    <ng-template #elseBlock>
-      <ul class="navbar-nav ml-auto nav-flex-icons">
-        <li class="nav-item" [routerLink] = "['login']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <a class="nav-link">Log In</a>
-        </li>
-        <li class="nav-item"[routerLink] = "['register']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <a class="nav-link">Sign Up</a>
-        </li>
-      </ul>
-    </ng-template>
-  </ul>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <ng-template #elseBlock>
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+          <li class="nav-item" [routerLink]="['login']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link">Log In</a>
+          </li>
+          <li class="nav-item" [routerLink]="['register']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link">Sign Up</a>
+          </li>
+        </ul>
+      </ng-template>
+    </ul>
   </links>
   <!-- Collapsible content -->
 

@@ -20,12 +20,16 @@ export class RegisterComponent extends LoginComponent implements OnInit {
 
 
   onSubmit(form: NgForm) {
-    console.log('Your form data : ', form.value);
+    //console.log('Your form data : ', form.value);
 
     this._api.postTypeRequest('user/register', form.value).subscribe((res: any) => {
-      if (res.status) {
+      if (res.status == 1) {
         this._auth.setDataInLocalStorage('userData', JSON.stringify(res.data));
         this._auth.setDataInLocalStorage('token', res.token);
+        this._router.navigate(['login']);
+        this.isUserLogin();
+      } else if (res.status == 2) {
+        alert(res.error);
         this._router.navigate(['login']);
       } else {
         alert(res.error)

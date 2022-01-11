@@ -15,5 +15,12 @@ export class HeaderComponent extends LoginComponent implements OnInit {
     setInterval(()=>{this.isUserLogin()}, 250);
   }
 
+  getName() {
+    if(this.isLogin)
+      return this._auth.getUserDetails().getName();
+    else
+      return "Not logged";
+  }
+
 
 }

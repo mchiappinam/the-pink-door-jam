@@ -33,7 +33,7 @@ import { RegisterComponent } from './auth/components/register/register.component
     MDBBootstrapModulesPro.forRoot(),
     AgmCoreModule.forRoot({
       // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en#key
-      apiKey: 'AIzaSyD1utbfswrRk6lgS3UhzNU4Wk7Q7hc4AtI'
+      apiKey: 'AIzaSyCzNS_8x_qv1NyyjPJY6IWYwR4cbWGfA1g'
     }),
     AuthModule,
     AppRoutingModule
