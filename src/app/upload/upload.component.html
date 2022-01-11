@@ -1,0 +1,45 @@
+=<mdb-card>
+
+    <mdb-card-header class="red white-text text-center py-4">
+        <h5>
+            <strong>Image Uploader (Editor/Administrator only)</strong>
+        </h5>
+    </mdb-card-header>
+
+    <!--Card content-->
+    <mdb-card-body class="px-lg-5 pt-0">
+
+        <!-- Form -->
+        <div class="container">
+            <section class="pb-3 my-5">
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-md-12 mb-3">
+                        <!--<img src="http://localhost:4000/images/img-1641929511960.jpg">-->
+
+                        <form #myform="ngForm" (ngSubmit)="onUploadSubmit(myform)">
+                            <div class="col-sm-12">
+                                <div>
+                                    <h6 class="head-title margin-top-8"><span>Select Image File</span></h6>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile" name="img"
+                                        (change)="onFileSelect($event)" #UploadFileInput>
+
+                                    <label class="custom-file-label" for="customFile">{{fileInputLabel || 'Choose File'}}</label>
+                                </div>
+                            </div>
+
+                            <button mdbBtn color="info" outline="true" rounded="true" block="true"
+                                class="my-4 waves-effect z-depth-0" mdbWavesEffect type="submit">Upload Image</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </mdb-card-body>
+
+</mdb-card>

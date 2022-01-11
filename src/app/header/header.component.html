@@ -27,8 +27,11 @@
               <div class="btn-group" mdbDropdown>
                 <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
                 <div class="dropdown-menu dropdown-menu-right dropdown-primary">
-                  <!--<a class="dropdown-item">NAME</a>
-                <div class="divider dropdown-divider"></div>-->
+                  <div *ngIf="adminLvl===1 || adminLvl===2">
+                    <a class="dropdown-item" [routerLink]="['upload']" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}">Upload new product</a>
+                    <div class="divider dropdown-divider"></div>
+                  </div>
                   <a class="dropdown-item" (click)='logout()' href="#">Logout</a>
                 </div>
               </div>
