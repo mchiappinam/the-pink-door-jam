@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LoginComponent } from '../auth/components/login/login.component';
 import { FormGroup } from '@angular/forms';
-import { CollapseModule } from 'ng-uikit-pro-standard';
 
 @Component({
   selector: 'app-upload',
