@@ -18,15 +18,25 @@
       </div>
     </mdb-card><br><br>
     <!-- Jumbotron -->
+      <ng-container *ngIf="pics">
+        <!--<li *ngFor="let pic of pics">
+          <p>{{pic.filename}}</p>
+          <p>{{pic.title}}</p>
+          <p>{{pic.description}}</p>
+        </li>-->
+
+
+
+
     <!--Grid row-->
-    <div class="row">
+    <div *ngFor="let group of imageGroups" class="row">
       <!--Grid column-->
-      <div class="col-lg-4 col-md-12 mb-3">
+      <div *ngFor="let image of group" class="col-lg-4 col-md-12 mb-3">
         <!--Card-->
         <mdb-card cascade="true" wider="true" class="card-ecommerce">
           <!--Card image-->
           <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-            <mdb-card-img src="https://i.imgur.com/zZyk821.jpg" alt="sample photo"></mdb-card-img>
+            <mdb-card-img src="https://be.thepinkdoorjam.com/images/{{image.filename}}" alt="https://be.thepinkdoorjam.com/images/{{image.filename}}"></mdb-card-img>
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -34,123 +44,29 @@
           <!--Card image-->
           <!--Card content-->
           <mdb-card-body cascade="true" class="text-center no-padding">
-            <!--Category & Title-->
+            <!--Category & Title
             <a href="" class="text-muted">
-              <h5>Camera</h5>
-            </a>
+              <h5>Test</h5>
+            </a>-->
             <mdb-card-title>
               <h4 class="card-title">
                 <strong>
-                  <a href="">GoPro</a>
+                  <a href="">{{image.title}}</a>
                 </strong>
               </h4>
             </mdb-card-title>
             <!--Description-->
-            <mdb-card-text>Lorem ipsum dolor sit amet, consectetur adipisicing minima veniam elit.</mdb-card-text>
+            <mdb-card-text>{{image.description}}</mdb-card-text>
             <!--Card footer-->
             <mdb-card-footer>
-              <span class="float-left font-weight-bold">
+              <!--<span class="float-left font-weight-bold">
                 <strong>1439$</strong>
-              </span>
+              </span>-->
               <span class="float-right">
-                <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
+               <!-- <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
                   <mdb-icon far icon="eye" class="grey-text ml-3"></mdb-icon>
-                </a>
-                <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                  <mdb-icon fas icon="heart" class="grey-text ml-3"></mdb-icon>
-                </a>
-              </span>
-            </mdb-card-footer>
-          </mdb-card-body>
-          <!--Card content-->
-        </mdb-card>
-        <!--Card-->
-      </div>
-      <!--Grid column-->
-      <!--Grid column-->
-      <div class="col-lg-4 col-md-6 mb-3">
-        <!--Card-->
-        <mdb-card cascade="true" wider="true" class="card-ecommerce">
-          <!--Card image-->
-          <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-            <mdb-card-img src="https://i.imgur.com/XNpgVQt.jpg" alt="sample photo"></mdb-card-img>
-            <a>
-              <div class="mask rgba-white-slight"></div>
-            </a>
-          </div>
-          <!--Card image-->
-          <!--Card content-->
-          <mdb-card-body cascade="true" class="text-center no-padding">
-            <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Photography</h5>
-            </a>
-            <mdb-card-title>
-              <h4 class="card-title">
-                <strong>
-                  <a href="">Camera</a>
-                </strong>
-              </h4>
-            </mdb-card-title>
-            <!--Description-->
-            <mdb-card-text>Lorem ipsum dolor sit amet, consectetur adipisicing minima veniam elit.</mdb-card-text>
-            <!--Card footer-->
-            <mdb-card-footer>
-              <span class="float-left font-weight-bold">
-                <strong>1160$</strong>
-              </span>
-              <span class="float-right">
-                <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                  <mdb-icon far icon="eye" class="grey-text ml-3"></mdb-icon>
-                </a>
-                <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                  <mdb-icon fas icon="heart" class="grey-text ml-3"></mdb-icon>
-                </a>
-              </span>
-            </mdb-card-footer>
-          </mdb-card-body>
-          <!--Card content-->
-        </mdb-card>
-        <!--Card-->
-      </div>
-      <!--Grid column-->
-      <!--Grid column-->
-      <div class="col-lg-4 col-md-6 mb-3">
-        <!--Card-->
-        <mdb-card cascade="true" wider="true" class="card-ecommerce">
-          <!--Card image-->
-          <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-            <mdb-card-img src="https://i.imgur.com/95EikuV.jpg" class="img-fluid" alt="sample photo"></mdb-card-img>
-            <a>
-              <div class="mask rgba-white-slight"></div>
-            </a>
-          </div>
-          <!--Card image-->
-          <!--Card content-->
-          <mdb-card-body cascade="true" class="text-center no-padding">
-            <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Smartphone</h5>
-            </a>
-            <mdb-card-title>
-              <h4>
-                <strong>
-                  <a href="">iPhone 6S</a>
-                </strong>
-              </h4>
-            </mdb-card-title>
-            <!--Description-->
-            <mdb-card-text>Lorem ipsum dolor sit amet, consectetur adipisicing minima veniam elit.</mdb-card-text>
-            <!--Card footer-->
-            <mdb-card-footer>
-              <span class="float-left font-weight-bold">
-                <strong>2160$</strong>
-              </span>
-              <span class="float-right">
-                <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                  <mdb-icon far icon="eye" class="grey-text ml-3"></mdb-icon>
-                </a>
-                <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
+                </a>-->
+                <a class="" data-toggle="tooltip" data-placement="top" title="Like">
                   <mdb-icon fas icon="heart" class="grey-text ml-3"></mdb-icon>
                 </a>
               </span>
@@ -163,151 +79,9 @@
       <!--Grid column-->
     </div>
     <!--Grid row-->
-    <!--Grid row-->
-    <div class="row">
-      <!--Grid column-->
-      <div class="col-lg-4 col-md-12 mb-3">
-        <!--Card-->
-        <mdb-card cascade="true" wider="true" class="card-ecommerce">
-          <!--Card image-->
-          <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-            <mdb-card-img src="https://i.imgur.com/zZyk821.jpg" alt="sample photo"></mdb-card-img>
-            <a>
-              <div class="mask rgba-white-slight"></div>
-            </a>
-          </div>
-          <!--Card image-->
-          <!--Card content-->
-          <mdb-card-body cascade="true" class="text-center no-padding">
-            <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Camera</h5>
-            </a>
-            <mdb-card-title>
-              <h4 class="card-title">
-                <strong>
-                  <a href="">GoPro</a>
-                </strong>
-              </h4>
-            </mdb-card-title>
-            <!--Description-->
-            <mdb-card-text>Lorem ipsum dolor sit amet, consectetur adipisicing minima veniam elit.</mdb-card-text>
-            <!--Card footer-->
-            <mdb-card-footer>
-              <span class="float-left font-weight-bold">
-                <strong>1439$</strong>
-              </span>
-              <span class="float-right">
-                <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                  <mdb-icon far icon="eye" class="grey-text ml-3"></mdb-icon>
-                </a>
-                <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                  <mdb-icon fas icon="heart" class="grey-text ml-3"></mdb-icon>
-                </a>
-              </span>
-            </mdb-card-footer>
-          </mdb-card-body>
-          <!--Card content-->
-        </mdb-card>
-        <!--Card-->
-      </div>
-      <!--Grid column-->
-      <!--Grid column-->
-      <div class="col-lg-4 col-md-6 mb-3">
-        <!--Card-->
-        <mdb-card cascade="true" wider="true" class="card-ecommerce">
-          <!--Card image-->
-          <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-            <mdb-card-img src="https://i.imgur.com/XNpgVQt.jpg" alt="sample photo"></mdb-card-img>
-            <a>
-              <div class="mask rgba-white-slight"></div>
-            </a>
-          </div>
-          <!--Card image-->
-          <!--Card content-->
-          <mdb-card-body cascade="true" class="text-center no-padding">
-            <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Photography</h5>
-            </a>
-            <mdb-card-title>
-              <h4 class="card-title">
-                <strong>
-                  <a href="">Camera</a>
-                </strong>
-              </h4>
-            </mdb-card-title>
-            <!--Description-->
-            <mdb-card-text>Lorem ipsum dolor sit amet, consectetur adipisicing minima veniam elit.</mdb-card-text>
-            <!--Card footer-->
-            <mdb-card-footer>
-              <span class="float-left font-weight-bold">
-                <strong>1160$</strong>
-              </span>
-              <span class="float-right">
-                <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                  <mdb-icon far icon="eye" class="grey-text ml-3"></mdb-icon>
-                </a>
-                <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                  <mdb-icon fas icon="heart" class="grey-text ml-3"></mdb-icon>
-                </a>
-              </span>
-            </mdb-card-footer>
-          </mdb-card-body>
-          <!--Card content-->
-        </mdb-card>
-        <!--Card-->
-      </div>
-      <!--Grid column-->
-      <!--Grid column-->
-      <div class="col-lg-4 col-md-6 mb-3">
-        <!--Card-->
-        <mdb-card cascade="true" wider="true" class="card-ecommerce">
-          <!--Card image-->
-          <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-            <mdb-card-img src="https://i.imgur.com/95EikuV.jpg" class="img-fluid" alt="sample photo"></mdb-card-img>
-            <a>
-              <div class="mask rgba-white-slight"></div>
-            </a>
-          </div>
-          <!--Card image-->
-          <!--Card content-->
-          <mdb-card-body cascade="true" class="text-center no-padding">
-            <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Smartphone</h5>
-            </a>
-            <mdb-card-title>
-              <h4>
-                <strong>
-                  <a href="">iPhone 6S</a>
-                </strong>
-              </h4>
-            </mdb-card-title>
-            <!--Description-->
-            <mdb-card-text>Lorem ipsum dolor sit amet, consectetur adipisicing minima veniam elit.</mdb-card-text>
-            <!--Card footer-->
-            <mdb-card-footer>
-              <span class="float-left font-weight-bold">
-                <strong>2160$</strong>
-              </span>
-              <span class="float-right">
-                <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                  <mdb-icon far icon="eye" class="grey-text ml-3"></mdb-icon>
-                </a>
-                <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                  <mdb-icon fas icon="heart" class="grey-text ml-3"></mdb-icon>
-                </a>
-              </span>
-            </mdb-card-footer>
-          </mdb-card-body>
-          <!--Card content-->
-        </mdb-card>
-        <!--Card-->
-      </div>
-      <!--Grid column-->
-    </div>
-    <!--Grid row--><!--[gestureHandling]="none" giving a error?!-->
+    
+  </ng-container>
+    <!--[gestureHandling]="none" giving a error?!-->
     <agm-map [latitude]="40.0026767" [longitude]="-75.6783382" [fitBounds]="true" style="height: 600px">
       <agm-marker [agmFitBounds]="true" [latitude]="30.3079827" [longitude]="-97.8934851">Texas</agm-marker>
       <agm-marker [agmFitBounds]="true" [latitude]="30.4672688" [longitude]="-84.3268957">Florida</agm-marker>

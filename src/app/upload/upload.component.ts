@@ -59,8 +59,6 @@ export class UploadComponent extends LoginComponent implements OnInit {
 
 
     this._api.postTypeRequest('user/upload', formData).subscribe(response => {
-      console.log(response);
-      console.log(JSON.parse(JSON.stringify(response)).statusCode);
       if (JSON.parse(JSON.stringify(response)).statusCode === 200) {
         alert("Image uploaded successfully!");
         this.uploadFileInput.nativeElement.value = "";
