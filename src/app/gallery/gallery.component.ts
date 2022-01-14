@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginComponent } from '../auth/components/login/login.component';
 
 @Component({
@@ -9,9 +10,18 @@ import { LoginComponent } from '../auth/components/login/login.component';
 export class GalleryComponent extends LoginComponent implements OnInit {
   pics: any[] = null;
   imageGroups: any[][];
+  validatingForm: FormGroup;
 
   ngOnInit() {
 
+
+    this.isUserLogin();
+
+
+    this.validatingForm = new FormGroup({
+      modalEditFormTitle: new FormControl('', Validators.required),
+      modalEditFormDescription: new FormControl('', Validators.required)
+    })
 
     this._api.getTypeRequest('user/loadpics').subscribe((res: any) => {
       if (res.status) {
@@ -33,6 +43,4 @@ export class GalleryComponent extends LoginComponent implements OnInit {
       this.errorMessage = err['error'].message;
     });
   }
-
-
 }

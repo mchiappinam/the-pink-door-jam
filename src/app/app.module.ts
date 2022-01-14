@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { UploadComponent } from './upload/upload.component';
+import { ImageEditComponent } from './image-edit/image-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UploadComponent } from './upload/upload.component';
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    UploadComponent
+    UploadComponent,
+    ImageEditComponent
   ],
   imports: [
     BrowserModule,
