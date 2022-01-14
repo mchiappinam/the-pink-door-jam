@@ -15,11 +15,11 @@ export class UploadComponent extends LoginComponent implements OnInit {
 
   ngOnInit() {
     this.isUserLogin();
-    if(!this.isLogin) {
+    if (!this.isLogin) {
       alert("You're not logged!");
       this._router.navigate(['login']);
       return;
-    }else if (this.adminLvl == 0) {
+    } else if (this.adminLvl == 0) {
       alert("Your account doesn't have permission to access that!");
       this._router.navigate(['']);
       return;
