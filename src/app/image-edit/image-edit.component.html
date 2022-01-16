@@ -15,48 +15,57 @@
                         </div>
                         <!--Card image-->
                         <!--Card content-->
+
                         <mdb-card-body cascade="true" class="text-center no-padding">
-                            <!--Category & Title
+                            <form #myform="ngForm" (ngSubmit)="onSubmit(myform)" style="color: #757575;"
+                                ngNativeValidate>
+                                <!--Category & Title
             <a href="" class="text-muted">
               <h5>Test</h5>
             </a>-->
-                            <mdb-card-title>
+                                <mdb-card-title>
 
-                                <div class="card-title">
-                                    <input type="text" id="form7" class="md-textarea form-control"
-                                        value="{{pic?.title}}" mdbInput>
-                                </div>
-                            </mdb-card-title>
-                            <!--Description-->
-                            <mdb-card-text><textarea type="text" id="form7"
-                                    class="md-textarea md-textarea-auto form-control"
-                                    mdbInput>{{pic?.description}}</textarea></mdb-card-text>
-                            <!--Card footer-->
-                            <!--<mdb-card-footer>-->
-                            <!--<span class="float-left font-weight-bold">
+                                    <div class="md-form">
+                                        <div class="card-title">
+                                            <input type="text" id="title" name="title" class="md-textarea form-control"
+                                                value="{{pic?.title}}" required mdbInput ngModel>
+                                        </div>
+                                    </div>
+                                </mdb-card-title>
+                                <!--Description-->
+                                <mdb-card-text><textarea type="text" id="description" name="description"
+                                        class="md-textarea md-textarea-auto form-control" value="{{pic?.description}}"
+                                        required mdbInput ngModel></textarea></mdb-card-text>
+                                <!--Card footer-->
+                                <!--<mdb-card-footer>-->
+                                <!--<span class="float-left font-weight-bold">
                 <strong>1439$</strong>
               </span>-->
-                            <div>Visibility:</div>
+                                <div>Visibility:</div>
 
-                            <div class="form-check form-check-inline">
-                                <input type="radio" class="form-check-input" id="1" name="inlineMaterialRadiosExample"
-                                    mdbInput>
-                                <label class="form-check-label" for="materialInline1">Public</label>
-                            </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="1"
+                                        name="inlineMaterialRadiosExample" mdbInput>
+                                    <label class="form-check-label" for="materialInline1">Public</label>
+                                </div>
 
-                            <!-- Material inline 2 -->
-                            <div class="form-check form-check-inline">
-                                <input type="radio" class="form-check-input" id="2" name="inlineMaterialRadiosExample"
-                                    mdbInput>
-                                <label class="form-check-label" for="materialInline2">STAFF only</label>
-                            </div>
-                            <span class="float-right">
-                                <!-- <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
+                                <!-- Material inline 2 -->
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="2"
+                                        name="inlineMaterialRadiosExample" mdbInput>
+                                    <label class="form-check-label" for="materialInline2">STAFF only</label>
+                                </div>
+                                <span class="float-right">
+                                    <!-- <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
                   <mdb-icon far icon="eye" class="grey-text ml-3"></mdb-icon>
                 </a>-->
-                                <a class="grey-text h6">ID #{{pic?.id}}</a>
-                            </span>
-                            <!--</mdb-card-footer>-->
+                                    <a class="grey-text h6">ID #{{pic?.id}}</a>
+                                </span>
+                                <!--</mdb-card-footer>-->
+
+                                <button mdbBtn color="info" outline="true" rounded="true" block="true"
+                                    class="my-4 waves-effect z-depth-0" mdbWavesEffect type="submit">Update</button>
+                            </form>
                         </mdb-card-body>
                         <!--Card content-->
                     </mdb-card>

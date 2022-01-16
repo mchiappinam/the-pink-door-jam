@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { LoginComponent } from '../auth/components/login/login.component';
 
 @Component({
@@ -29,6 +30,22 @@ export class ImageEditComponent extends LoginComponent implements OnInit {
           this.pic = res.data[0];
         } else {
           alert(JSON.stringify(res.error));
+        }
+      }, err => {
+        this.errorMessage = err['error'].message;
+      });
+    });
+  }
+
+
+
+  onSubmit(form: NgForm) {
+    this.route.params.subscribe(params => {
+      this._api.putTypeRequest('user/editpic' + params.id, form.value).subscribe((res: any) => {
+        if (res.status == 1) {
+          alert("Updated successfully!");
+        } else {
+          alert(JSON.stringify(res.error))
         }
       }, err => {
         this.errorMessage = err['error'].message;
