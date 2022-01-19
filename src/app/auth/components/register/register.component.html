@@ -1,4 +1,3 @@
-<!-- Material form register -->
 <mdb-card>
 
     <mdb-card-header class="teal accent-3 white-text text-center py-4">
@@ -6,17 +5,14 @@
             <strong>Sign up</strong>
         </h5>
     </mdb-card-header>
-
-    <!--Card content-->
     <mdb-card-body class="px-lg-5 pt-0">
-
-        <!-- Form -->
         <div class="container">
             <section class="pb-3 my-5">
                 <div class="row">
                     <!--Grid column-->
                     <div class="col-md-12 mb-3">
-                        <form #myform="ngForm" (ngSubmit)="onSubmit(myform)" style="color: #757575;"  *ngIf='!this.isLogin' ngNativeValidate>
+                        <form #myform="ngForm" (ngSubmit)="onSubmit(myform)" style="color: #757575;"
+                            *ngIf='!this.isLogin' ngNativeValidate>
 
                             <div class="form-row">
                                 <div class="col">

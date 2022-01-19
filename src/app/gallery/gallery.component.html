@@ -59,13 +59,27 @@
                 </a>-->
                 <ng-container *ngIf="adminLvl!==0">
                   <a class="grey-text h6">ID #{{image.id}}</a>
-                  <a class="" [routerLink]="['edit', image.id]"  data-toggle="tooltip" data-placement="top" title="Edit">
+                  <a class="" [routerLink]="['edit', image.id]" data-toggle="tooltip" data-placement="top" title="Edit">
                     <mdb-icon fas icon="edit" class="grey-text ml-3"></mdb-icon>
                   </a>
                 </ng-container>
-                <a class="" data-toggle="tooltip" data-placement="top" title="Like">
-                  <mdb-icon fas icon="heart" class="grey-text ml-3"></mdb-icon>
-                </a>
+
+                <ng-container *ngIf="!this.isLogin; else elseBlocL">
+                  <a data-toggle="tooltip" data-placement="top" title="Like" [routerLink]="['login']">
+                    <mdb-icon far icon="heart" class="grey-text ml-3"></mdb-icon> {{getLikeCount(image?.like_user_id)}}
+                  </a>
+                </ng-container>
+
+                <ng-template #elseBlocL>
+                  <a data-toggle="tooltip" data-placement="top" title="Like" (click)=likeToggle(image.id);>
+                    <mdb-icon *ngIf="isLikedByUser(userId,image?.like_user_id); else elseBlock" fas icon="heart"
+                      class="red-text ml-3"></mdb-icon>
+                    <ng-template #elseBlock>
+                      <mdb-icon far icon="heart" class="grey-text ml-3"></mdb-icon>
+                    </ng-template> {{getLikeCount(image?.like_user_id)}}
+                  </a>
+                </ng-template>
+
               </span>
               <!--</mdb-card-footer>-->
             </mdb-card-body>

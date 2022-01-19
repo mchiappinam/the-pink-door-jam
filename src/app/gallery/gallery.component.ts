@@ -9,7 +9,7 @@ import { LoginComponent } from '../auth/components/login/login.component';
 })
 export class GalleryComponent extends LoginComponent implements OnInit {
   pics: any[] = null;
-  imageGroups: any[][];
+  imageGroups: any[];
   validatingForm: FormGroup;
 
   ngOnInit() {
@@ -22,7 +22,10 @@ export class GalleryComponent extends LoginComponent implements OnInit {
       modalEditFormTitle: new FormControl('', Validators.required),
       modalEditFormDescription: new FormControl('', Validators.required)
     })
+    this.loadPics();
+  }
 
+  loadPics() {
     this._api.getTypeRequest('user/loadpics').subscribe((res: any) => {
       if (res.status) {
         //console.log(res)
@@ -43,4 +46,43 @@ export class GalleryComponent extends LoginComponent implements OnInit {
       this.errorMessage = err['error'].message;
     });
   }
+
+  getLikeCount(liked: string) {
+    if (liked == null) {
+      return 0;
+    }
+    var lkd: string[] = null;
+    lkd = liked.split(',');
+    return lkd.length;
+  }
+
+  isLikedByUser(uid: number, like_user_id: string) {
+    if ((like_user_id == null) || (uid == 0) || (uid == null)) {
+      return false;
+    }
+    var lkd: number[] = null;
+    lkd = like_user_id.split(',').map(Number);
+    if (lkd.includes(uid)) {
+      return true;
+    }
+    return false;
+  }
+
+  likeToggle(p_id: any) {
+
+    const data = { uid: this.userId, post_id: p_id }
+    this._api.putTypeRequest('user/likes', data).subscribe((res: any) => {
+
+      if (res.status == 1) {
+        this.loadPics();
+      } else {
+        alert(JSON.stringify(res))
+      }
+    }, err => {
+      alert("Error: API not implemented");
+      this.errorMessage = err['error'].message;
+    });
+  }
+
+
 }

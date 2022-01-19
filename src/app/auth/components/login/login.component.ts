@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   isLogin: boolean = false
   adminLvl: number = 0; //0=user, 1=editor, 2=administrator. (more to add in the future)
   user: String = "Not logged";
+  userId: number = 0;
 
   errorMessage
   constructor(
@@ -65,10 +66,12 @@ export class LoginComponent implements OnInit {
         }
       }
       this.user = JSON.parse(JSON.stringify(this._auth.getUserDetails()))[0].username;
+      this.userId = JSON.parse(JSON.stringify(this._auth.getUserDetails()))[0].id;
     } else {
       this.isLogin = false;
       this.adminLvl = 0;
       this.user = "Not logged";
+      this.userId = 0;
     }
   }
 
