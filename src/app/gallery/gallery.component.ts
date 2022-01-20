@@ -48,7 +48,7 @@ export class GalleryComponent extends LoginComponent implements OnInit {
   }
 
   getLikeCount(liked: string) {
-    if (liked == null) {
+    if ((liked == null) || (liked == "")) {
       return 0;
     }
     var lkd: string[] = null;
@@ -57,7 +57,7 @@ export class GalleryComponent extends LoginComponent implements OnInit {
   }
 
   isLikedByUser(uid: number, like_user_id: string) {
-    if ((like_user_id == null) || (uid == 0) || (uid == null)) {
+    if ((like_user_id == null) || (like_user_id == "") || (uid == 0) || (uid == null)) {
       return false;
     }
     var lkd: number[] = null;
@@ -79,7 +79,6 @@ export class GalleryComponent extends LoginComponent implements OnInit {
         alert(JSON.stringify(res))
       }
     }, err => {
-      alert("Error: API not implemented");
       this.errorMessage = err['error'].message;
     });
   }
