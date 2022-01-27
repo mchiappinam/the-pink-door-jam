@@ -25,7 +25,7 @@ export class GalleryComponent extends LoginComponent implements OnInit {
     this.loadPics();
   }
 
-  loadPics() {
+  public loadPics() {
     this._api.getTypeRequest('user/loadpics').subscribe((res: any) => {
       if (res.status) {
         //console.log(res)
